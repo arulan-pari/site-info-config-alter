@@ -1,0 +1,7 @@
+axe_site_api.page_a_p_i_controller_getPageJson:
+  path: '/page_json/{api}/{nid}'
+  defaults:
+    _controller: '\Drupal\axe_site_api\Controller\PageAPIController::getPageJson'
+    _title: 'Page Content API'
+  requirements:
+    _permission: 'access content'

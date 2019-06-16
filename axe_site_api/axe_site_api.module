@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains axe_site_api.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function axe_site_api_form_system_site_information_settings_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Change the submit value based on the 'siteapikey' field value.
+  if ($form['site_information']['siteapikey']['#default_value'] !== 'No API Key yet') {
+    $form['actions']['submit']['#value'] = t('Update Configuration');
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function axe_site_api_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the axe_site_api module.
+    case 'help.page.axe_site_api':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module alters the site information to adds the site API field and established JSON response.') . '</p>';
+      $output .= '<p><b>' . t('JSON API path:') . '</b> '. t('/page_json/{API-KEY}/{NID}') . '</p>';
+
+      return $output;
+
+    default:
+  }
+}

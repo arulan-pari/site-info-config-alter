@@ -1,0 +1,5 @@
+name: 'Axe - Site API'
+type: module
+description: 'This module alters the site information, adds the site API field and establish JSON response.'
+core: 8.x
+package: 'Axelerant'
