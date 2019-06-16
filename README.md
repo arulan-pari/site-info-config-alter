@@ -1,6 +1,6 @@
 # site-info-config-alter
 
-##ABOUT:
+ABOUT:
 ******
 This module alters the site information to adds the site API field and established JSON response.
 
